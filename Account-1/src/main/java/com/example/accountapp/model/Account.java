@@ -13,9 +13,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "accounts")
 public class Account {
@@ -24,13 +30,13 @@ public class Account {
 	@GeneratedValue(strategy = GenerationType.IDENTITY )
 	private long id;
 	
-	@Column(name = "account_name")
+	@Column(name = "account_name", nullable = false)
 	private String accountName;
 	
-	@Column(name = "profile_id")
+	@Column(name = "profile_id", nullable = false)
 	private String profileId;
 	
-	@Column(name = "total_balance")
+	@Column(name = "total_balance", nullable = false)
 	private int totalBalance;
 	
 	@OneToMany(targetEntity = Holding.class ,cascade = CascadeType.ALL)

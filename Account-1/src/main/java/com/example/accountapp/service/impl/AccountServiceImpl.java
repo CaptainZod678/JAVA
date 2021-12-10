@@ -33,7 +33,6 @@ public class AccountServiceImpl  implements AccountService {
 		
 	@Override
 	public List<Account> getAccountByholdingId() {
-		//repository.findAll(Sort.by(Sort.Direction.ASC, "seatNumber"));
 		return accountRepository.findAll(Sort.by(Sort.Direction.ASC,"holding.hid"));
 	}
 	
